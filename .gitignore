@@ -1,0 +1,8 @@
+build/*
+!build/.gitkeep
+!build/*.pdf
+
+**/.DS_Store
+cache/*
+!cache/.gitkeep
+_minted-example/*

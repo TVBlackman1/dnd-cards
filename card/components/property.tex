@@ -1,0 +1,23 @@
+\usepackage{calc} % для \widthof
+
+\newcommand{\SpellProperty}[2]{%
+  \noindent
+  \begin{tcolorbox}[
+    enhanced,
+    sharp corners,
+    boxrule=0pt,
+    colback=transparent!5,
+    left=0pt, right=0pt, top=0pt, bottom=0pt,
+    nobeforeafter
+  ]
+    % --- icon minipage ---
+    \begin{minipage}[c]{\widthof{\includegraphics[width=0.4cm]{#1}}}
+      \includegraphics[width=0.3cm]{#1}%
+    \end{minipage}%
+    \hspace{5pt}% gap между иконкой и текстом
+    % --- text minipage ---
+    \begin{minipage}[c]{\widthof{\textbf{\fontsize{12}{14}\selectfont #2}}}
+      \textbf{\fontsize{7pt}{12}\selectfont #2}%
+    \end{minipage}%
+  \end{tcolorbox}%
+}

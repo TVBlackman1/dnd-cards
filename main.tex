@@ -1,0 +1,59 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=1cm]{geometry}
+\usepackage{fontspec}
+\usepackage[russian]{babel}
+\usepackage[most]{tcolorbox}
+\usepackage{xcolor}
+\usepackage{pgffor}
+\usepackage{datatool}
+\usepackage{graphicx}
+\usepackage{xstring}
+\usepackage{mfirstuc}
+% \usepackage{etoolbox}
+
+\setmainfont{Times New Roman}
+
+\DTLloaddb{spells}{data/data.csv}
+
+\input{meta/pdf-meta.tex}
+
+\input{utils/init.tex}
+
+\input{card/base_styles.tex}
+\input{card/default_styles.tex}
+\input{card/components/property.tex}
+\input{card/components/components.tex}
+
+\begin{document}
+
+\DTLforeach*{spells}{
+  % \spellName=Name,
+  % \spellSchool=School,
+  % \spellLevel=Level,
+  % \spellDistance=Distance,
+  % \spellVerbal=Verbal,
+  % \spellSomatic=Somatic,
+  % \spellMaterial=Material,
+  % \spellDescription=Description%
+}{
+    \DTLgetvalue{\verbalval}{spells}{\DTLcurrentindex}{3}
+    \makefirstuc{\verbalval}
+    % \SpellComponents{\spellVerbal}{\spellSomatic}
+    % \begin{tcolorbox}[
+    %   spellcard, title=\spellName
+    % ]
+    %   \begin{tcolorbox}
+    %     \SpellProperty{card/icons/components.pdf}{\SpellComponents{\spellVerbal}{\spellSomatic}}
+    %     \SpellProperty{card/icons/clock-4.pdf}{1 действие}
+    %     \SpellProperty{card/icons/land-plot.pdf}{\spellDistance}
+    %     \SpellProperty{card/icons/timer.pdf}{Концентрация}
+    %     \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
+    %   \end{tcolorbox}
+    %   \textbf{School:} \spellSchool \\
+    %   \textbf{Level:} \spellLevel \\
+    %   \vspace{0.2cm}
+    %   \spellDescription
+    % \end{tcolorbox}
+}
+
+\end{document}

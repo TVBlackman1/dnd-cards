@@ -1,0 +1,41 @@
+{
+	"terminal.integrated.env.osx": {
+    	"PATH": "${env:PATH}"
+	},
+	"latex-workshop.latex.outDir": "%DIR%/build",
+	"latex-workshop.latex.recipes": [
+		{
+			"name": "latexmk",
+			"tools": [
+				"latexmk"
+			]
+		},
+	],
+	"latex-workshop.latex.tools": [
+		{
+			"name": "source_env",
+			"command": "bash",
+			"args": ["-c", "source ~/.zshrc"]
+		},
+		{
+			"name": "latexmk",
+			"command": "/Library/TeX/texbin/latexmk",
+			"env": {
+				"LANG": "ru_RU.UTF-8",
+			},
+			"args": [
+				"-pdfxe", // use XeLaTeX for build
+				"-synctex=1",
+				"-interaction=nonstopmode",
+				"-file-line-error",
+				"-outdir=%OUTDIR%",
+				"-bibtex",
+				"-auxdir=%DIR%/cache",
+				"-shell-escape",
+				"%DOC%"
+			]
+		}
+	],
+	"latex-workshop.latex.build.forceRecipeUsage": true,
+	"latex-workshop.view.pdf.viewer": "tab"
+}
