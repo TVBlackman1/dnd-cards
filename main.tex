@@ -11,6 +11,7 @@
 \usepackage{mfirstuc}
 \usepackage{varwidth}
 \usepackage{lipsum}
+\usepackage{tabularx}
 % \usepackage{etoolbox}
 
 \setmainfont{Times New Roman}
@@ -90,15 +91,16 @@
         before skip=0pt, after skip=0pt,
         boxrule=0pt,
       ]
-        \SpellProperty{card/icons/components.pdf}{%
-          \SpellComponents{\spellVerbal}{\spellSomatic}{\spellMaterial}%
-        }
-        \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime}
-        \SpellProperty{card/icons/land-plot.pdf}{\spellDistance}
-        \SpellProperty{card/icons/timer.pdf}{\spellDuration}
-        \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
+        \begin{tabularx}{\linewidth}{@{}X X@{}}
+          \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime} &
+          \SpellProperty{card/icons/timer.pdf}{\spellDuration} \\[2pt]
+          % \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
+          \SpellProperty{card/icons/components.pdf}{%
+            \SpellComponents{\spellVerbal}{\spellSomatic}{\spellMaterial}%
+          } &
+          \SpellProperty{card/icons/land-plot.pdf}{\spellDistance}
+        \end{tabularx}
       \end{tcolorbox}
-      \textbf{Level:} \spellLevel \\
       \vspace{0.2cm}
       \spellDescription
       % \lipsum[1]
