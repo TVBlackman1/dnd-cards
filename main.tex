@@ -53,6 +53,16 @@
   title=Large
 }
 
+\newtcolorbox{SpellDescriptionBox}{
+  % colback=gray!5,
+  % colframe=black!20,
+  opacityframe=1,opacityback=0,
+  boxsep=0pt, left=2pt, right=2pt, top=0pt, bottom=0pt,
+  before skip=0pt, after skip=0pt,
+  boxrule=0pt,
+  enhanced jigsaw,
+}
+
 \newsavebox{\testbox}
 \newcommand{\autoCard}[1]{%
   \savebox{\testbox}{\begin{minipage}{4cm}#1\end{minipage}}%
@@ -84,25 +94,32 @@
     \autoCard{\spellSchool}
     \begin{tcolorbox}[
       spellcard, title=\spellName,
+      % overflow hidden,
       after title=\hfill{\spellLevel},
     ]
       \begin{tcolorbox}[
         boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt,
         before skip=0pt, after skip=0pt,
         boxrule=0pt,
+        opacityframe=1,opacityback=0,
+        enhanced jigsaw,
       ]
+        \vspace{-\baselineskip}
         \begin{tabularx}{\linewidth}{@{}X X@{}}
           \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime} &
-          \SpellProperty{card/icons/timer.pdf}{\spellDuration} \\[2pt]
+          \SpellProperty{card/icons/timer.pdf}{\spellDuration} \\[-12pt]
           % \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
           \SpellProperty{card/icons/components.pdf}{%
             \SpellComponents{\spellVerbal}{\spellSomatic}{\spellMaterial}%
           } &
           \SpellProperty{card/icons/land-plot.pdf}{\spellDistance}
         \end{tabularx}
+        \vspace{-4pt}
       \end{tcolorbox}
       \vspace{0.2cm}
-      \spellDescription
+      \begin{SpellDescriptionBox}
+        \spellDescription
+      \end{SpellDescriptionBox}
       % \lipsum[1]
     \end{tcolorbox}
 }
