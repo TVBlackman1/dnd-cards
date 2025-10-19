@@ -1,0 +1,13 @@
+\ExplSyntaxOn
+\NewDocumentCommand{\SpellDuration}{m}{
+  \regex_replace_all:nnN
+    { Концентрация }
+    { Конц. }
+  #1
+  \regex_replace_all:nnN
+    { вплоть }
+    { }
+  #1
+  #1
+}
+\ExplSyntaxOff

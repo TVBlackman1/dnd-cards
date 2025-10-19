@@ -26,6 +26,7 @@
 \input{card/default_styles.tex}
 \input{card/components/property.tex}
 \input{card/components/components.tex}
+\input{card/components/duration.tex}
 
 \begin{document}
 
@@ -107,7 +108,9 @@
         \vspace{-\baselineskip}
         \begin{tabularx}{\linewidth}{@{}X X@{}}
           \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime} &
-          \SpellProperty{card/icons/timer.pdf}{\spellDuration} \\[-12pt]
+          \SpellProperty{card/icons/timer.pdf}{
+            \SpellDuration{\spellDuration}
+          } \\[-12pt]
           % \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
           \SpellProperty{card/icons/components.pdf}{%
             \SpellComponents{\spellVerbal}{\spellSomatic}{\spellMaterial}%
