@@ -1,6 +1,4 @@
-\newcommand{\SpellComponents}[2]{%
-  \DTLgetvalue{\verbalval}{spells}{#1}{Verbal}
-%   #1
+\newcommand{\SpellComponents}[3]{%
   \def\Comp{}%
   \DTLifstringeq{#1}{TRUE}{\def\Comp{В}}{}%
   \DTLifstringeq{#2}{TRUE}{%
@@ -10,11 +8,11 @@
       \edef\Comp{\Comp,С}%
     \fi
   }{}%
-  \DTLifstringeq{#2}{TRUE}{%
+  \DTLifstringgt{#3}{}{%
     \ifx\Comp\empty
       \def\Comp{М}%
     \else
-      \edef\Comp{\Comp,М}%
+      \edef\Comp{\Comp,М (#3)}%
     \fi
   }{}%
   \Comp

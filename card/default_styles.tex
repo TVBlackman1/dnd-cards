@@ -4,10 +4,16 @@
     height=\cardheight,
     colback=cardbackground,
     colframe=cardborder,
-    boxsep=\cardpadding,
+    boxsep=0pt,
+    left=0mm, right=0mm, top=1mm, bottom=1mm,
+    before skip=0pt, after skip=0pt,
+    lefttitle=2mm, righttitle=2mm, toptitle=1mm, bottomtitle=0mm,
+    % boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt,
+    % before skip=0pt, after skip=0pt, nobeforeafter,
     sharp corners,
-    fonttitle=\fontsizeTitle\bfseries\fontspec{\titlefontname},
+    fonttitle=\fontsizeBody\bfseries\fontspec{\mainfontname},
     fontupper=\fontsizeBody\fontspec{\mainfontname},
     coltitle=cardtitle,
+    nobeforeafter,
   }
 }
