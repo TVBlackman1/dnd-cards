@@ -8,8 +8,6 @@
     left=0mm, right=0mm, top=1mm, bottom=1mm,
     before skip=0pt, after skip=0pt,
     lefttitle=2mm, righttitle=2mm, toptitle=1mm, bottomtitle=0mm,
-    % boxsep=0pt, left=0pt, right=0pt, top=0pt, bottom=0pt,
-    % before skip=0pt, after skip=0pt, nobeforeafter,
     sharp corners,
     fonttitle=\fontsizeBody\bfseries\fontspec{\mainfontname},
     fontupper=\fontsizeBody\fontspec{\mainfontname},
@@ -24,4 +22,47 @@
     left=0mm, right=0mm, top=0mm, bottom=0mm,
     before skip=0pt, after skip=0pt,
   }
+}
+
+\newcommand{\resolveCardColor}[1]{%
+  \DTLifstringeq{#1}{Иллюзия}{
+    \def\cardContentColor{yellow!24!white}
+    \def\cardBorderColor{yellow!40!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Очарование}{
+    \def\cardContentColor{purple!24!white}
+    \def\cardBorderColor{purple!40!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Воплощение}{
+    \def\cardContentColor{orange!24!white}
+    \def\cardBorderColor{orange!40!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Вызов}{
+    \def\cardContentColor{red!24!white}
+    \def\cardBorderColor{red!40!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Некромантия}{
+    \def\cardContentColor{teal!20!white}
+    \def\cardBorderColor{teal!34!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Ограждение}{
+    \def\cardContentColor{blue!20!white}
+    \def\cardBorderColor{blue!34!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Преобразование}{
+    \def\cardContentColor{brown!24!white}
+    \def\cardBorderColor{brown!40!white}
+    \def\cardTitleColor{black}
+  }{}%
+  \DTLifstringeq{#1}{Прорицание}{
+    \def\cardContentColor{violet!24!white}
+    \def\cardBorderColor{violet!40!white}
+    \def\cardTitleColor{black}
+  }{}%
 }

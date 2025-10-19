@@ -92,11 +92,15 @@
   \spellMaterial=Material,
   \spellDescription=Description%
 }{
-    \autoCard{\spellSchool}
+    % \autoCard{\spellSchool}
+    \resolveCardColor{\spellSchool}
     \begin{tcolorbox}[
       spellcard, title=\spellName,
       % overflow hidden,
       after title=\hfill{\spellLevel},
+      colback=\cardContentColor,
+      colframe=\cardBorderColor,
+      coltitle=\cardTitleColor,
     ]
       \begin{tcolorbox}[
         tboxnospaces,
