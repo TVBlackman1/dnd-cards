@@ -5,14 +5,14 @@
     \ifx\Comp\empty
       \def\Comp{С}%
     \else
-      \edef\Comp{\Comp,С}%
+      \edef\Comp{\Comp, С}%
     \fi
   }{}%
   \DTLifstringgt{#3}{}{%
     \ifx\Comp\empty
       \def\Comp{М}%
     \else
-      \edef\Comp{\Comp,М}%
+      \edef\Comp{\Comp, М}%
     \fi
   }{}%
   \Comp

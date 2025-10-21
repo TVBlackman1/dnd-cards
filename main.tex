@@ -12,7 +12,7 @@
 \usepackage{varwidth}
 \usepackage{lipsum}
 \usepackage{tabularx}
-% \usepackage{etoolbox}
+\tcbuselibrary{magazine}
 
 \setmainfont{Times New Roman}
 
@@ -54,14 +54,20 @@
   title=Large
 }
 
-\newtcolorbox{SpellDescriptionBox}{
-  % colback=gray!5,
-  % colframe=black!20,
-  opacityframe=1,opacityback=0,
-  tboxnospaces,
-  left=2pt, right=2pt,
-  boxrule=0pt,
-  enhanced jigsaw,
+\newcommand{\SpellDescrition}[1]{%
+  \begingroup
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{2mm}
+    \fontsizeBody\fontsize{8pt}{8pt}\fontspec{EB Garamond}\selectfont
+    \leftskip=4pt
+    \rightskip=4pt
+    \begingroup
+      \catcode`\\=\active
+      \def\\{\par}
+      #1
+    \endgroup
+    \par
+  \endgroup
 }
 
 \newsavebox{\testbox}
@@ -79,7 +85,6 @@
   \fi
 }
 
-
 \DTLforeach*{spells}{
   \spellName=Name,
   \spellSchool=School,
@@ -95,26 +100,32 @@
     % \autoCard{\spellSchool}
     \resolveCardColor{\spellSchool}
     \begin{tcolorbox}[
+      breakable,
+      break at=88mm,
+      height fixed for=all,
+      fit algorithm=hybrid*,
       spellcard, title=\spellName,
       % overflow hidden,
       after title=\hfill{\spellLevel},
       colback=\cardContentColor,
       colframe=\cardBorderColor,
       coltitle=\cardTitleColor,
+      reset box array,
+      store to box array,
     ]
+
       \begin{tcolorbox}[
         tboxnospaces,
         boxrule=0pt,
         opacityframe=1,opacityback=0,
         enhanced jigsaw,
       ]
-        \vspace{-\baselineskip}
+        \vspace{-\baselineskip+0.8mm}
         \begin{tabularx}{\linewidth}{@{}X X@{}}
           \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime} &
           \SpellProperty{card/icons/timer.pdf}{
             \SpellDuration{\spellDuration}
-          } \\[-12pt]
-          % \SpellProperty{card/icons/graduation-cap.pdf}{\spellSchool}
+          } \\[-8pt]
           \SpellProperty{card/icons/components.pdf}{%
             \SpellComponents{\spellVerbal}{\spellSomatic}{\spellMaterial}%
           } &
@@ -122,12 +133,18 @@
         \end{tabularx}
         \vspace{-4pt}
       \end{tcolorbox}
-      \vspace{0.2cm}
-      \begin{SpellDescriptionBox}
-        \spellDescription
-      \end{SpellDescriptionBox}
-      % \lipsum[1]
+      \vspace{1.2mm}
+      \SpellDescrition{\spellDescription}
     \end{tcolorbox}
+
+    \begin{tcbitemize}[blankest,raster columns=3,raster equal height]
+      % \tcbitem\consumeboxarray{5}
+      % \tcbitem\consumeboxarray{6}
+      \tcbitem\consumeboxarray{1}
+      \tcbitem\consumeboxarray{2}
+      \tcbitem\consumeboxarray{3}
+      % \tcbitem\consumeboxarray{4}
+    \end{tcbitemize}
 }
 
 \end{document}
