@@ -121,8 +121,9 @@
         opacityframe=1,opacityback=0,
         enhanced jigsaw,
       ]
-        \vspace{-\baselineskip+0.8mm}
-        \begin{tabularx}{\linewidth}{@{}X X@{}}
+        \vspace{-\baselineskip+0.6mm}
+        \noindent\hspace*{1mm}
+        \begin{tabularx}{\dimexpr\linewidth-2mm\relax}{@{}X X@{}}
           \SpellProperty{card/icons/clock-4.pdf}{\spellCastTime} &
           \SpellProperty{card/icons/timer.pdf}{
             \SpellDuration{\spellDuration}
@@ -132,19 +133,19 @@
           } &
           \SpellProperty{card/icons/land-plot.pdf}{\spellDistance}
         \end{tabularx}
-        \vspace{-4pt}
+        \hspace*{1mm}%
+        \vspace{-10pt}
       \end{tcolorbox}
       \vspace{1.2mm}
       \SpellDescrition{\spellDescription}
     \end{tcolorbox}
 
-    \begin{tcbitemize}[blankest,raster columns=2,raster equal height, raster width=12.8cm]
-      % \tcbitem\consumeboxarray{5}
-      % \tcbitem\consumeboxarray{6}
-      \tcbitem\consumeboxarray{1}
-      \tcbitem\consumeboxarray{2}
-      % \tcbitem\consumeboxarray{4}
-    \end{tcbitemize}
+    \boxarraygetsize{\sidesCount}
+    \foreach \n in {1,...,\sidesCount} {
+      \usetcboxarray{\n}{
+        on line, blankest,
+      }
+    }
 }
 
 \end{document}
