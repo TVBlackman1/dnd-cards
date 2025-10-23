@@ -2,6 +2,10 @@
   spellcard/.style={
     width=\cardwidth,
     height=\cardheight,
+    breakable,
+    break at=88mm,
+    height fixed for=all,
+    fit algorithm=hybrid*,
     colback=cardbackground,
     colframe=cardborder,
     boxsep=0pt,
@@ -15,6 +19,7 @@
     coltitle=cardtitle,
     nobeforeafter,
     enhanced jigsaw,
+    skin=standard,
   }
 }
 

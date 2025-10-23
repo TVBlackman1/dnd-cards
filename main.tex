@@ -100,21 +100,14 @@
     % \autoCard{\spellSchool}
     \resolveCardColor{\spellSchool}
     \begin{tcolorbox}[
-      breakable,
-      break at=88mm,
-      height fixed for=all,
-      fit algorithm=hybrid*,
       spellcard, title=\spellName,
-      % overflow hidden,
       after title=\hfill{\spellLevel},
       colback=\cardContentColor,
       colframe=\cardBorderColor,
       coltitle=\cardTitleColor,
       reset box array,
       store to box array,
-      skin=standard,
     ]
-
       \begin{tcolorbox}[
         tboxnospaces,
         boxrule=0pt,
@@ -139,6 +132,23 @@
       \vspace{1.2mm}
       \SpellDescrition{\spellDescription}
     \end{tcolorbox}
+
+    \ifboxarrayempty{2}{
+      \begin{tcolorbox}[
+        spellcard,
+        colback=\cardContentColor,
+        colframe=\cardBorderColor,
+        store to box array,
+      ]
+        \begin{tcolorbox}[
+          tboxnospaces,
+          boxrule=0pt,
+          opacityframe=1,opacityback=0,
+          enhanced jigsaw,
+        ]
+        \end{tcolorbox}
+      \end{tcolorbox}
+    }
 
     \boxarraygetsize{\sidesCount}
     \foreach \n in {1,...,\sidesCount} {
