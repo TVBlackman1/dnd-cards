@@ -27,6 +27,7 @@
 \input{card/components/property.tex}
 \input{card/components/components.tex}
 \input{card/components/duration.tex}
+\input{card/components/material_components.tex}
 
 \begin{document}
 
@@ -105,13 +106,12 @@
       colback=\cardContentColor,
       colframe=\cardBorderColor,
       coltitle=\cardTitleColor,
-      reset box array,
-      store to box array,
+      reset and store to box array,
     ]
       \begin{tcolorbox}[
         tboxnospaces,
         boxrule=0pt,
-        opacityframe=1,opacityback=0,
+        frame hidden, interior hidden,
         enhanced jigsaw,
       ]
         \vspace{-\baselineskip+0.6mm}
@@ -130,6 +130,7 @@
         \vspace{-10pt}
       \end{tcolorbox}
       \vspace{1.2mm}
+      \MaterialComponentsText{\spellMaterial}
       \SpellDescrition{\spellDescription}
     \end{tcolorbox}
 
