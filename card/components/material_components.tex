@@ -1,17 +1,15 @@
-\newcommand{\MaterialComponentsText}[1]{
+\newcommand{\MaterialComponentsText}[2]{
     \begin{tcolorbox}[
-        % tboxnospaces,
-        % boxrule=0pt,
-        % opacityframe=1,opacityback=0,
-        % enhanced jigsaw,
+        tboxnospaces,
         enhanced,skin=enhancedmiddle,
         interior hidden,
         arc=3mm,boxrule=1.5mm,
-frame hidden,colback=blue!10!white,
-borderline={0.75mm}{0mm}{red},
-borderline={0.75mm}{0.75mm}{red!50!yellow},
-borderline={0.75mm}{1.5mm}{yellow}
-      ]
+        % width=\dimexpr\linewidth-2mm,
+        left=1.5mm, right=1.5mm,
+        frame hidden,colback=blue!10!white,
+        borderline={0.5mm}{1.75mm}{white!50!black},
+        before skip=6pt, after skip=2pt,
+    ]
         #1
     \end{tcolorbox}
 }
